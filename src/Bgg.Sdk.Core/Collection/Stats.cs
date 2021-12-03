@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace Bgg.Sdk.Core.Models.Collection
+namespace Bgg.Sdk.Core.Collection
 {
     public class Stats
     {
@@ -15,8 +15,14 @@ namespace Bgg.Sdk.Core.Models.Collection
         
         [XmlAttribute("maxplaytime")]
         public int MaxPlaytime { get; set; }
+
+        [XmlAttribute("playingtime")]
+        public int Playtime { get; set; }
+
+        [XmlAttribute("numowned")]
+        public int NumberOwned { get; set; }
         
-        [XmlElement("rating")]
-        public ValueElement Rating { get; set; }
+        //[XmlElement("rating")]
+        //public ValueElement Rating { get; set; }
     }
 }

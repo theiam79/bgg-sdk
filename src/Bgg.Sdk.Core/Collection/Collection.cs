@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Bgg.Sdk.Core.Models.Collection
+namespace Bgg.Sdk.Core.Collection
 {
     [XmlRoot("items")]
     public class Collection
