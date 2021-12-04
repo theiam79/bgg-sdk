@@ -20,37 +20,35 @@ namespace Bgg.Sdk.Core.Forum
         public int NumberOfPosts { get; set; }
         [XmlAttribute("lastpostdate")]
         public string LastPostDateString { get; set; } = "";
-        [XmlIgnore]
-        public DateTime LastPostDate => DateTime.TryParse(LastPostDateString, out var date) ? date : default;
+        //[XmlIgnore]
+        //public DateTime LastPostDate => DateTime.TryParse(LastPostDateString, out var date) ? date : default;
         [XmlAttribute("noposting")]
         public bool NoPosting { get; set; }
         [XmlAttribute("termsofuse")]
         public string TermsOfUse { get; set; } = "";
         [XmlElement("threads")]
-        public ThreadCollection Threads { get; set; } = new();
-    }
-
-    public class ThreadCollection
-    {
-        [XmlElement("thread")]
-        public Thread[] Threads { get; set; } = Array.Empty<Thread>();
-    }
-
-    public class Thread
-    {
-        [XmlAttribute("id")]
-        public int Id { get; set; }
-        [XmlAttribute("subject")]
-        public string Subject { get; set; } = "";
-        [XmlAttribute("author")]
-        public string Author { get; set; } = "";
-        [XmlAttribute("numarticles")]
-        public int NumberOfArticles { get; set; }
-        [XmlAttribute("postdate")]
-        public string PostDateString { get; set; } = "";
-        public DateTime PostDate => DateTime.TryParse(PostDateString, out var date) ? date : default;
-        [XmlAttribute("lastpostdate")]
-        public string LastPostDateString { get; set; } = "";
-        public DateTime LastPostDate => DateTime.TryParse(LastPostDateString, out var date) ? date : default;
+        public ThreadCollectionElement ThreadCollection { get; set; } = new();
+        public class ThreadCollectionElement
+        {
+            [XmlElement("thread")]
+            public List<ThreadElement> Threads { get; set; } = new();
+            public class ThreadElement
+            {
+                [XmlAttribute("id")]
+                public int Id { get; set; }
+                [XmlAttribute("subject")]
+                public string Subject { get; set; } = "";
+                [XmlAttribute("author")]
+                public string Author { get; set; } = "";
+                [XmlAttribute("numarticles")]
+                public int NumberOfArticles { get; set; }
+                [XmlAttribute("postdate")]
+                public string PostDateString { get; set; } = "";
+                //public DateTime PostDate => DateTime.TryParse(PostDateString, out var date) ? date : default;
+                [XmlAttribute("lastpostdate")]
+                public string LastPostDateString { get; set; } = "";
+                //public DateTime LastPostDate => DateTime.TryParse(LastPostDateString, out var date) ? date : default;
+            }
+        }
     }
 }

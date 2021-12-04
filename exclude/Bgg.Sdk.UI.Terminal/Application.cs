@@ -44,7 +44,9 @@ namespace Bgg.Sdk.UI.Terminal
             //var guild = await _bggApi.Guild(3022);
             //var hotgames = await _bggApi.HotItems(Core.HotItems.HotListType.Boardgame);
             //var plays = await _bggApi.Plays("theiam79", 36218);
-            //var things = await _bggApi.Things(173346);
+            var things = await _bggApi.Things(173346);
+
+            var linkTypes = things.Items.SelectMany(i => i.Links).Select(l => l.LinkType).Distinct().ToList();
             //var polls = things.Items.First().Polls;
             //foreach (var poller in polls)
             //{

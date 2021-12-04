@@ -13,20 +13,19 @@ namespace Bgg.Sdk.Core.HotItems
         [XmlAttribute("termsofuse")]
         public string TermsOfUse { get; init; } = "";
         [XmlElement("item")]
-        public Item[] Items { get; init; } = Array.Empty<Item>();
-    }
-
-    public class Item
-    {
-        [XmlAttribute("id")]
-        public int Id { get; init; }
-        [XmlAttribute("rank")]
-        public int Rank { get; init; }
-        [XmlElement("thumbnail")]
-        public ValueElement Thumbnail { get; init; } = new();
-        [XmlElement("name")]
-        public ValueElement Name { get; init; } = new();
-        [XmlElement("yearpublished")]
-        public ValueElement<int> YearPublished { get; init; } = new();
+        public List<ItemElement> Items { get; init; } = new();
+        public class ItemElement
+        {
+            [XmlAttribute("id")]
+            public int Id { get; init; }
+            [XmlAttribute("rank")]
+            public int Rank { get; init; }
+            [XmlElement("thumbnail")]
+            public ValueElement Thumbnail { get; init; } = new();
+            [XmlElement("name")]
+            public ValueElement Name { get; init; } = new();
+            [XmlElement("yearpublished")]
+            public ValueElement<int> YearPublished { get; init; } = new();
+        }
     }
 }

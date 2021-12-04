@@ -17,6 +17,21 @@ namespace Bgg.Sdk.Core.Search
         public string TermsOfUse { get; set; } = "";
 
         [XmlElement("item")]
-        public Item[] Items = Array.Empty<Item>();
+        public List<ItemElement> Items = new();
+
+        public class ItemElement
+        {
+            [XmlAttribute("type")]
+            public ItemType ItemType { get; set; } = ItemType.Unknown;
+
+            [XmlAttribute("id")]
+            public int Id { get; set; }
+
+            [XmlElement("name")]
+            public NameElement Name = new();
+
+            [XmlElement("yearpublished")]
+            public ValueElement YearPublished = new();
+        }
     }
 }

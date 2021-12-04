@@ -48,12 +48,66 @@ namespace Bgg.Sdk.Core.User
         [XmlElement("marketrating")]
         public ValueElement<int> MarketRating { get; set; } = new();
         [XmlElement("buddies")]
-        public BuddyInfo Buddies { get; set; } = new();
+        public BuddyCollectionElement BuddyCollection { get; set; } = new();
         [XmlElement("guilds")]
-        public GuildInfo Guilds { get; set; } = new();
+        public GuildCollectionElement Guilds { get; set; } = new();
         [XmlElement("top")]
-        public RankedList Top { get; set; } = new();
+        public RankedCollectionElement Top { get; set; } = new();
         [XmlElement("hot")]
-        public RankedList Hot { get; set; } = new();
+        public RankedCollectionElement Hot { get; set; } = new();
+
+        public class BuddyCollectionElement
+        {
+            [XmlAttribute("total")]
+            public int Total { get; set; }
+            [XmlAttribute("page")]
+            public int Page { get; set; }
+            [XmlElement("buddy")]
+            public List<BuddyElement> Buddies { get; set; } = new();
+            public class BuddyElement
+            {
+                [XmlAttribute("id")]
+                public int Id { get; set; }
+                [XmlAttribute("name")]
+                public string Name { get; set; } = "";
+            }
+        }
+
+        public class GuildCollectionElement
+        {
+            [XmlAttribute("total")]
+            public int Total { get; set; }
+            [XmlAttribute("page")]
+            public int Page { get; set; }
+            [XmlElement("guild")]
+            public List<GuildElement> Guilds { get; set; } = new();
+            public class GuildElement
+            {
+                [XmlAttribute("id")]
+                public int Id { get; set; }
+                [XmlAttribute("name")]
+                public string Name { get; set; } = "";
+            }
+        }
+
+        public class RankedCollectionElement
+        {
+            [XmlAttribute("domain")]
+            public RankingDomain Domain { get; set; } = RankingDomain.Unknown;
+
+            [XmlElement("item")]
+            public List<RankedItemElement> RankedItems { get; set; } = new();
+            public class RankedItemElement
+            {
+                [XmlAttribute("rank")]
+                public int Rank { get; set; }
+                [XmlAttribute("type")]
+                public string Type { get; set; } = "";
+                [XmlAttribute("id")]
+                public int Id { get; set; }
+                [XmlAttribute("name")]
+                public string Name { get; set; } = "";
+            }
+        }
     }
 }

@@ -11,34 +11,34 @@ namespace Bgg.Sdk.Core.ForumList
     public class ForumList
     {
         [XmlAttribute("type")]
-        public string ForumType { get; set; } = "";
+        public ForumListType ForumListType { get; set; } = ForumListType.Unknown;
         [XmlAttribute("id")]
         public int Id { get; set; }
         [XmlAttribute("termsofuse")]
         public string TermsOfUse { get; set; } = "";
         [XmlElement("forum")]
-        public Forum[] Forums { get; set; } = Array.Empty<Forum>();
+        public List<ForumElement> Forums { get; set; } = new();
+        public class ForumElement
+        {
+            [XmlAttribute("id")]
+            public int Id { get; set; }
+            [XmlAttribute("groupid")]
+            public int GroupId { get; set; }
+            [XmlAttribute("title")]
+            public string Title { get; set; } = "";
+            [XmlAttribute("noposting")]
+            public bool NoPosting { get; set; }
+            [XmlAttribute("description")]
+            public string Description { get; set; } = "";
+            [XmlAttribute("numthreads")]
+            public int NumberOfThreads { get; set; }
+            [XmlAttribute("numposts")]
+            public int NumberOfPosts { get; set; }
+            [XmlAttribute("lastpostdate")]
+            public string LastPostDateString { get; set; } = "";
+            //[XmlIgnore]
+            //public DateTime LastPostDate => DateTime.TryParse(LastPostDateString, out var date) ? date : default;
+        }
     }
 
-    public class Forum
-    {
-        [XmlAttribute("id")]
-        public int Id { get; set; }
-        [XmlAttribute("groupid")]
-        public int GroupId { get; set; }
-        [XmlAttribute("title")]
-        public string Title { get; set; } = "";
-        [XmlAttribute("noposting")]
-        public bool NoPosting { get; set; }
-        [XmlAttribute("description")]
-        public string Description { get; set; } = "";
-        [XmlAttribute("numthreads")]
-        public int NumberOfThreads { get; set; }
-        [XmlAttribute("numposts")]
-        public int NumberOfPosts { get; set; }
-        [XmlAttribute("lastpostdate")]
-        public string LastPostDateString { get; set; } = "";
-        [XmlIgnore]
-        public DateTime LastPostDate => DateTime.TryParse(LastPostDateString, out var date) ? date : default;
-    }
 }
