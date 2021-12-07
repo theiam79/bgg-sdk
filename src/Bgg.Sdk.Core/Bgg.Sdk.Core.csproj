@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Authors>Tyler Hundley</Authors>
+    <Description>A simple API wrapper for the BGG XMLAPI2 using refit</Description>
+    <RepositoryUrl>https://github.com/theiam79/bgg-sdk</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>bgg, boardgamegeek</PackageTags>
+    <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Polly" Version="7.2.2" />
+    <PackageReference Include="Refit" Version="6.1.15" />
+    <PackageReference Include="Refit.HttpClientFactory" Version="6.1.15" />
+  </ItemGroup>
+
+</Project>
