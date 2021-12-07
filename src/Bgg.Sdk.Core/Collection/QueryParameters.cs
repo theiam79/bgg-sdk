@@ -18,10 +18,10 @@ namespace Bgg.Sdk.Core.Collection
         public string UserName { get; }
 
         [AliasAs("subtype")]
-        public ItemType? CollectionType { get; set; } = ItemType.Boardgame;
+        public ThingType? CollectionType { get; set; } = ThingType.Boardgame;
 
         [AliasAs("excludesubtype")]
-        public ItemType? ExcludedType { get; set; }
+        public ThingType? ExcludedType { get; set; }
         //id
 
         [AliasAs("stats")]

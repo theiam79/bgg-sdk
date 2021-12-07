@@ -12,101 +12,101 @@ namespace Bgg.Sdk.Core.User
     public class User
     {
         [XmlAttribute("id")]
-        public int Id { get; set; }
+        public int Id { get; init; }
         [XmlAttribute("name")]
-        public string Name { get; set; } = "";
+        public string Name { get; init; } = "";
         [XmlAttribute("termsofuse")]
-        public string TermsOfUse { get; set; } = "";
+        public string TermsOfUse { get; init; } = "";
         [XmlElement("firstname")]
-        public ValueElement FirstName { get; set; } = new();
+        public ValueElement FirstName { get; init; } = new();
         [XmlElement("lastname")]
-        public ValueElement LastName { get; set; } = new();
+        public ValueElement LastName { get; init; } = new();
         [XmlElement("avatarlink")]
-        public ValueElement AvatarLink { get; set; } = new();
+        public ValueElement AvatarLink { get; init; } = new();
         [XmlElement("yearregistered")]
-        public ValueElement<int> YearRegistered { get; set; } = new();
+        public ValueElement<int> YearRegistered { get; init; } = new();
         [XmlElement("lastlogin")]
-        public ValueElement<DateTime> LastLogin { get; set; } = new();
+        public ValueElement<DateTime> LastLogin { get; init; } = new();
         [XmlElement("stateorprovince")]
-        public ValueElement StateOrProvince { get; set; } = new();
+        public ValueElement StateOrProvince { get; init; } = new();
         [XmlElement("country")]
-        public ValueElement Country { get; set; } = new();
+        public ValueElement Country { get; init; } = new();
         [XmlElement("webaddress")]
-        public ValueElement WebAddress { get; set; } = new();
+        public ValueElement WebAddress { get; init; } = new();
         [XmlElement("xboxaccount")]
-        public ValueElement XboxAccount { get; set; } = new();
+        public ValueElement XboxAccount { get; init; } = new();
         [XmlElement("wiiaccount")]
-        public ValueElement WiiAccount { get; set; } = new();
+        public ValueElement WiiAccount { get; init; } = new();
         [XmlElement("psnaccount")]
-        public ValueElement PsnAccount { get; set; } = new();
+        public ValueElement PsnAccount { get; init; } = new();
         [XmlElement("battlenetaccount")]
-        public ValueElement BattleNetAccount { get; set; } = new();
+        public ValueElement BattleNetAccount { get; init; } = new();
         [XmlElement("steamaccount")]
-        public ValueElement SteamAccount { get; set; } = new();
+        public ValueElement SteamAccount { get; init; } = new();
         [XmlElement("traderating")]
-        public ValueElement<int> TradeRating { get; set; } = new();
+        public ValueElement<int> TradeRating { get; init; } = new();
         [XmlElement("marketrating")]
-        public ValueElement<int> MarketRating { get; set; } = new();
+        public ValueElement<int> MarketRating { get; init; } = new();
         [XmlElement("buddies")]
-        public BuddyCollectionElement BuddyCollection { get; set; } = new();
+        public BuddyCollectionElement BuddyCollection { get; init; } = new();
         [XmlElement("guilds")]
-        public GuildCollectionElement Guilds { get; set; } = new();
+        public GuildCollectionElement GuildCollection { get; init; } = new();
         [XmlElement("top")]
-        public RankedCollectionElement Top { get; set; } = new();
+        public RankedCollectionElement Top { get; init; } = new();
         [XmlElement("hot")]
-        public RankedCollectionElement Hot { get; set; } = new();
+        public RankedCollectionElement Hot { get; init; } = new();
 
         public class BuddyCollectionElement
         {
             [XmlAttribute("total")]
-            public int Total { get; set; }
+            public int Total { get; init; }
             [XmlAttribute("page")]
-            public int Page { get; set; }
+            public int Page { get; init; }
             [XmlElement("buddy")]
-            public List<BuddyElement> Buddies { get; set; } = new();
+            public List<BuddyElement> Buddies { get; init; } = new();
             public class BuddyElement
             {
                 [XmlAttribute("id")]
-                public int Id { get; set; }
+                public int Id { get; init; }
                 [XmlAttribute("name")]
-                public string Name { get; set; } = "";
+                public string Name { get; init; } = "";
             }
         }
 
         public class GuildCollectionElement
         {
             [XmlAttribute("total")]
-            public int Total { get; set; }
+            public int Total { get; init; }
             [XmlAttribute("page")]
-            public int Page { get; set; }
+            public int Page { get; init; }
             [XmlElement("guild")]
-            public List<GuildElement> Guilds { get; set; } = new();
+            public List<GuildElement> Guilds { get; init; } = new();
             public class GuildElement
             {
                 [XmlAttribute("id")]
-                public int Id { get; set; }
+                public int Id { get; init; }
                 [XmlAttribute("name")]
-                public string Name { get; set; } = "";
+                public string Name { get; init; } = "";
             }
         }
 
         public class RankedCollectionElement
         {
             [XmlAttribute("domain")]
-            public RankingDomain Domain { get; set; } = RankingDomain.Unknown;
+            public RankingDomain Domain { get; init; } = RankingDomain.Unknown;
 
             [XmlElement("item")]
-            public List<RankedItemElement> RankedItems { get; set; } = new();
+            public List<RankedItemElement> RankedItems { get; init; } = new();
             public class RankedItemElement
             {
                 [XmlAttribute("rank")]
-                public int Rank { get; set; }
+                public int Rank { get; init; }
                 [XmlAttribute("type")]
-                public string Type { get; set; } = "";
+                public string Type { get; init; } = "";
                 [XmlAttribute("id")]
-                public int Id { get; set; }
+                public int Id { get; init; }
                 [XmlAttribute("name")]
-                public string Name { get; set; } = "";
+                public string Name { get; init; } = "";
             }
         }
     }

@@ -13,54 +13,54 @@ namespace Bgg.Sdk.Core.Thing
         [XmlAttribute("termsofuse")]
         public string TermsOfUse { get; init; } = "";
         [XmlElement("item")]
-        public List<ItemElement> Items { get; init; } = new();
+        public ItemElement Item { get; init; } = new();
 
         public class ItemElement
         {
             [XmlAttribute("type")]
-            public ItemType Type { get; init; } = ItemType.Unknown;
+            public ThingType ThingType { get; init; } = ThingType.Unknown;
 
             [XmlAttribute("id")]
-            public int Id { get; set; }
+            public int Id { get; init; }
 
             [XmlElement("thumbnail")]
-            public string Thumbnail { get; set; } = "";
+            public string Thumbnail { get; init; } = "";
 
             [XmlElement("image")]
-            public string Image { get; set; } = "";
+            public string Image { get; init; } = "";
 
             [XmlElement("name")]
-            public List<NameElement> Names { get; set; } = new();
+            public List<NameElement> Names { get; init; } = new();
 
             [XmlElement("description")]
-            public string Description { get; set; } = "";
+            public string Description { get; init; } = "";
 
             [XmlElement("yearpublished")]
-            public ValueElement<int> YearPublished { get; set; } = new();
+            public ValueElement<int> YearPublished { get; init; } = new();
 
             [XmlElement("minplayers")]
-            public ValueElement<int> MinPlayers { get; set; } = new();
+            public ValueElement<int> MinPlayers { get; init; } = new();
 
             [XmlElement("maxplayers")]
-            public ValueElement<int> MaxPlayers { get; set; } = new();
+            public ValueElement<int> MaxPlayers { get; init; } = new();
 
             [XmlElement("poll")]
-            public List<PollElement> Polls { get; set; } = new();
+            public List<PollElement> Polls { get; init; } = new();
 
             [XmlElement("playingtime")]
-            public ValueElement<int> PlayingTime { get; set; } = new();
+            public ValueElement<int> PlayingTime { get; init; } = new();
 
             [XmlElement("minplaytime")]
-            public ValueElement<int> MinPlaytime { get; set; } = new();
+            public ValueElement<int> MinPlaytime { get; init; } = new();
 
             [XmlElement("maxplaytime")]
-            public ValueElement<int> MaxPlaytime { get; set; } = new();
+            public ValueElement<int> MaxPlaytime { get; init; } = new();
 
             [XmlElement("minage")]
-            public ValueElement<int> MinAge { get; set; } = new();
+            public ValueElement<int> MinAge { get; init; } = new();
 
             [XmlElement("link")]
-            public List<LinkElement> Links { get; set; } = new();
+            public List<LinkElement> Links { get; init; } = new();
             [XmlElement("videos")]
             public VideoCollectionElement VideoList { get; init; } = new();
             [XmlElement("versions")]
@@ -77,7 +77,7 @@ namespace Bgg.Sdk.Core.Thing
                 [XmlAttribute("total")]
                 public int Total { get; init; }
                 [XmlElement("video")]
-                public List<VideoElement> Videos { get; set; } = new();
+                public List<VideoElement> Videos { get; init; } = new();
                 public class VideoElement
                 {
                     [XmlAttribute("id")]
@@ -87,9 +87,9 @@ namespace Bgg.Sdk.Core.Thing
                     [XmlAttribute("category")]
                     public string Category { get; init; } = "";
                     [XmlAttribute("language")]
-                    public string Language { get; set; } = "";
+                    public string Language { get; init; } = "";
                     [XmlAttribute("link")]
-                    public string Url { get; set; } = "";
+                    public string Url { get; init; } = "";
                     [XmlAttribute("username")]
                     public string UserName { get; init; } = "";
                     [XmlAttribute("userid")]
@@ -102,27 +102,27 @@ namespace Bgg.Sdk.Core.Thing
             public class VersionCollectionElement
             {
                 [XmlElement("item")]
-                public List<VersionElement> Versions { get; set; } = new();
+                public List<VersionElement> Versions { get; init; } = new();
                 public class VersionElement
                 {
-                    [XmlAttribute("type")]
-                    public ItemType Type { get; init; } = ItemType.Unknown;
+                    //[XmlAttribute("type")]
+                    //public ThingType Type { get; init; } = ThingType.Unknown;
                     [XmlAttribute("id")]
                     public int Id { get; init; }
                     [XmlElement("thumbnail")]
-                    public string Thumbnail { get; set; } = "";
+                    public string Thumbnail { get; init; } = "";
 
                     [XmlElement("image")]
-                    public string Image { get; set; } = "";
+                    public string Image { get; init; } = "";
 
                     [XmlElement("name")]
-                    public List<NameElement> Names { get; set; } = new();
+                    public List<NameElement> Names { get; init; } = new();
 
                     [XmlElement("link")]
-                    public List<LinkElement> Links { get; set; } = new();
+                    public List<LinkElement> Links { get; init; } = new();
 
                     [XmlElement("yearpublished")]
-                    public ValueElement<int> YearPublished { get; set; } = new();
+                    public ValueElement<int> YearPublished { get; init; } = new();
                     [XmlElement("productcode")]
                     public ValueElement ProductCode { get; init; } = new();
                     [XmlElement("width")]
@@ -133,8 +133,6 @@ namespace Bgg.Sdk.Core.Thing
                     public ValueElement<double> Depth { get; init; } = new();
                     [XmlElement("weight")]
                     public ValueElement<double> Weight { get; init; } = new();
-                    //[XmlElement("link")]
-                    //public Link Link { get; init; } = new();
                 }
             }
 
@@ -151,7 +149,7 @@ namespace Bgg.Sdk.Core.Thing
                     [XmlAttribute("username")]
                     public string UserName { get; init; } = "";
                     [XmlAttribute("rating")]
-                    public string RatingString { get; init; } = "";
+                    public string Rating { get; init; } = "";
                     [XmlAttribute("value")]
                     public string Value { get; init; } = "";
                 }
@@ -248,19 +246,19 @@ namespace Bgg.Sdk.Core.Thing
             public class PollElement
             {
                 [XmlAttribute("name")]
-                public string Name { get; set; } = "";
+                public string Name { get; init; } = "";
 
                 [XmlAttribute("title")]
-                public string Title { get; set; } = "";
+                public string Title { get; init; } = "";
 
                 [XmlAttribute("totalvotes")]
-                public int TotalVotes { get; set; }
+                public int TotalVotes { get; init; }
                 [XmlElement("results")]
-                public List<ResultCollectionElement> ResultCollections { get; set; } = new();
+                public List<ResultCollectionElement> ResultCollections { get; init; } = new();
                 public class ResultCollectionElement
                 {
                     [XmlAttribute("numplayers")]
-                    public string? NumberOfPlayers { get; set; }
+                    public string? NumberOfPlayers { get; init; }
 
                     [XmlElement("result")]
                     public PollResultElement[] Results { get; init; } = Array.Empty<PollResultElement>();
@@ -271,7 +269,7 @@ namespace Bgg.Sdk.Core.Thing
                         [XmlAttribute("value")]
                         public string Value { get; init; } = "";
                         [XmlAttribute("numvotes")]
-                        public int NumberOfVotes { get; set; }
+                        public int NumberOfVotes { get; init; }
                     }
                 }
             }

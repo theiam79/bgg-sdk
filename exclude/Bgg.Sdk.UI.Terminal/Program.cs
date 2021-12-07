@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Refit;
 using Polly;
+using Bgg.Sdk;
 
 public static class Program
 {
@@ -27,6 +28,9 @@ public static class Program
                         .OrResult(r => r.StatusCode == System.Net.HttpStatusCode.Accepted)
                         .WaitAndRetryAsync(5, attempt => TimeSpan.FromSeconds(Math.Pow(2, attempt))))
                     ;
+
+                services.AddAutoMapper(typeof(BggClient));
+                services.AddTransient<BggClient>();
             })
             .Build();
 

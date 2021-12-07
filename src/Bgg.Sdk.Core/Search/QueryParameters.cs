@@ -19,10 +19,10 @@ namespace Bgg.Sdk.Core.Search
 
         [AliasAs("type")]
         [Query(CollectionFormat.Csv)]
-        public List<ItemType> Types { get; init; } = new();
+        public List<ThingType>? Types { get; init; }
 
         [AliasAs("exact")]
-        public bool Exact { get; set; } = true;
+        public bool? Exact { get; set; }
 
     }
 }

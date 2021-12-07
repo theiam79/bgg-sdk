@@ -17,7 +17,7 @@ namespace Bgg.Sdk.Core.Forum
         [AliasAs("id")]
         public int Id { get; set; }
         [AliasAs("page")]
-        public int? Page { get; set; } = null;
+        public int Page { get; set; } = 1;
     }
 
 }

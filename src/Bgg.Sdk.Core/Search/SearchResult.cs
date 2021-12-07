@@ -11,10 +11,10 @@ namespace Bgg.Sdk.Core.Search
     public class SearchResult
     {
         [XmlAttribute("total")]
-        public int Total { get; set; }
+        public int Total { get; init; }
 
         [XmlAttribute("termsofuse")]
-        public string TermsOfUse { get; set; } = "";
+        public string TermsOfUse { get; init; } = "";
 
         [XmlElement("item")]
         public List<ItemElement> Items = new();
@@ -22,16 +22,16 @@ namespace Bgg.Sdk.Core.Search
         public class ItemElement
         {
             [XmlAttribute("type")]
-            public ItemType ItemType { get; set; } = ItemType.Unknown;
+            public ThingType ItemType { get; init; } = ThingType.Unknown;
 
             [XmlAttribute("id")]
-            public int Id { get; set; }
+            public int Id { get; init; }
 
             [XmlElement("name")]
             public NameElement Name = new();
 
             [XmlElement("yearpublished")]
-            public ValueElement YearPublished = new();
+            public ValueElement<int> YearPublished = new();
         }
     }
 }

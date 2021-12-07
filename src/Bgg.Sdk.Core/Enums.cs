@@ -54,7 +54,7 @@ namespace Bgg.Sdk.Core
         BoardGame = 1
     }
 
-    public enum ItemType
+    public enum ThingType
     {
         Unknown = 0,
         [EnumMember(Value = "boardgame")]
@@ -77,7 +77,7 @@ namespace Bgg.Sdk.Core
         RpgIssue = 6
     }
 
-    public enum ForumListType
+    public enum ListType
     {
         Unknown = 0,
         [EnumMember(Value = "thing")]
@@ -86,6 +86,38 @@ namespace Bgg.Sdk.Core
         [EnumMember(Value = "family")]
         [XmlEnum("family")]
         Family = 2,
+    }
+
+    [Flags]
+    public enum ListSubType
+    {
+        [EnumMember(Value = "boardgame")]
+        [XmlEnum("boardgame")]
+        Boardgame = 1 << 0,
+        [EnumMember(Value = "boardgameexpansion")]
+        [XmlEnum("boardgameexpansion")]
+        BoardgameExpansion = 1 << 1,
+        [EnumMember(Value = "boardgameaccessory")]
+        [XmlEnum("boardgameaccessory")]
+        BoardgameAccessory = 1 << 2,
+        [EnumMember(Value = "boardgameintegration")]
+        [XmlEnum("boardgameintegration")]
+        BoardgameIntegration = 1 << 3,
+        [EnumMember(Value = "boardgamecompilation")]
+        [XmlEnum("boardgamecompilation")]
+        BoardgameCompilation = 1 << 4,
+        [EnumMember(Value = "boardgameimplementation")]
+        [XmlEnum("boardgameimplementation")]
+        BoardgameImplementation = 1 << 5,
+        [EnumMember(Value = "rpg")]
+        [XmlEnum("rpg")]
+        Rpg = 1 << 6,
+        [EnumMember(Value = "rpgitem")]
+        [XmlEnum("rpgitem")]
+        RpgItem = 1 << 7,
+        [EnumMember(Value = "videogame")]
+        [XmlEnum("videogame")]
+        Videogame = 1 << 8
     }
 
     public enum FamilyType

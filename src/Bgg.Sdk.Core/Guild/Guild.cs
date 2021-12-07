@@ -11,23 +11,21 @@ namespace Bgg.Sdk.Core.Guild
     public class Guild
     {
         [XmlAttribute("id")]
-        public int Id { get; set; }
+        public int Id { get; init; }
         [XmlAttribute("name")]
-        public string Name { get; set; } = "";
+        public string Name { get; init; } = "";
         [XmlAttribute("created")]
-        public string CreatedString { get; set; } = "";
-        //[XmlIgnore]
-        //public DateTime Created => DateTime.TryParse(CreatedString, out var date) ? date : default;
+        public string CreatedString { get; init; } = "";
         [XmlAttribute("termsofuse")]
-        public string TermsOfUse { get; set; } = "";
+        public string TermsOfUse { get; init; } = "";
         [XmlElement("category")]
-        public string Category { get; set; } = "";
+        public string Category { get; init; } = "";
         [XmlElement("website")]
-        public string Website { get; set; } = "";
+        public string Website { get; init; } = "";
         [XmlElement("manager")]
-        public string Manager { get; set; } = "";
+        public string Manager { get; init; } = "";
         [XmlElement("description")]
-        public string Description { get; set; } = "";
+        public string Description { get; init; } = "";
         [XmlElement("location")]
         public LocationElement Location { get; init; } = new();
         [XmlElement("members")]
@@ -35,32 +33,32 @@ namespace Bgg.Sdk.Core.Guild
         public class LocationElement
         {
             [XmlElement("addr1")]
-            public string Address1 { get; set; } = "";
+            public string Address1 { get; init; } = "";
             [XmlElement("addr2")]
-            public string Address2 { get; set; } = "";
+            public string Address2 { get; init; } = "";
             [XmlElement("city")]
-            public string City { get; set; } = "";
+            public string City { get; init; } = "";
             [XmlElement("stateorprovince")]
-            public string StateOrProvince { get; set; } = "";
+            public string StateOrProvince { get; init; } = "";
             [XmlElement("postalcode")]
-            public string PostalCode { get; set; } = "";
+            public string PostalCode { get; init; } = "";
             [XmlElement("country")]
-            public string Country { get; set; } = "";
+            public string Country { get; init; } = "";
         }
         public class MemberCollectionElement
         {
             [XmlAttribute("count")]
-            public int Count { get; set; }
+            public int Count { get; init; }
             [XmlAttribute("page")]
-            public int Page { get; set; }
+            public int Page { get; init; }
             [XmlElement("member")]
-            public List<MemberElement> Members { get; set; } = new();
+            public List<MemberElement> Members { get; init; } = new();
             public class MemberElement
             {
                 [XmlAttribute("name")]
-                public string Name { get; set; } = "";
+                public string Name { get; init; } = "";
                 [XmlAttribute("date")]
-                public string DateString { get; set; } = "";
+                public string DateString { get; init; } = "";
                 [XmlIgnore]
                 public DateTime Date => DateTime.TryParse(DateString, out var date) ? date : default;
             }

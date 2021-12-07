@@ -45,7 +45,7 @@ namespace Bgg.Sdk.Core.Plays
                 [XmlAttribute("name")]
                 public string Name { get; init; } = "";
                 [XmlAttribute("objecttype")]
-                public string ObjectType { get; init; } = "";
+                public ListType ObjectType { get; init; }
                 [XmlAttribute("objectid")]
                 public int ObjectId { get; init; }
                 [XmlElement("subtypes")]
@@ -53,7 +53,7 @@ namespace Bgg.Sdk.Core.Plays
                 public class TypeCollectionElement
                 {
                     [XmlElement("subtype")]
-                    public List<ValueElement> Subtypes { get; init; } = new();
+                    public List<ValueElement<ListSubType>> Subtypes { get; init; } = new();
                 }
             }
             public class PlayerCollectionElement
@@ -77,7 +77,7 @@ namespace Bgg.Sdk.Core.Plays
                     [XmlAttribute("new")]
                     public bool New { get; init; }
                     [XmlAttribute("rating")]
-                    public int Rating { get; init; }
+                    public string Rating { get; init; } = "";
                     [XmlAttribute("win")]
                     public bool Win { get; init; }
                 }

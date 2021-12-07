@@ -11,98 +11,95 @@ namespace Bgg.Sdk.Core.Collection
     public class Collection
     {
         [XmlAttribute("totalitems")]
-        public int TotalItems { get; set; }
-        
+        public int TotalItems { get; init; }
+
         [XmlAttribute("termsofuse")]
-        public string? TermsOfUse { get; set; }
-        
+        public string TermsOfUse { get; init; } = "";
+
         [XmlAttribute("pubdate")]
-        public string? PubDate { get; set; }
+        public string PubDate { get; init; } = "";
 
         [XmlElement("item")]
-        public List<ItemElement> Items { get; set; } = new();
+        public List<ItemElement> Items { get; init; } = new();
 
         public class ItemElement
         {
             [XmlAttribute("objectid")]
-            public int ObjectId { get; set; }
+            public int ObjectId { get; init; }
 
             [XmlElement("name")]
-            public string Name { get; set; } = "";
+            public string Name { get; init; } = "";
 
             [XmlElement("yearpublished")]
-            public int YearPublished { get; set; }
+            public int YearPublished { get; init; }
 
             [XmlElement("image")]
-            public string Image { get; set; } = "";
+            public string Image { get; init; } = "";
 
             [XmlElement("thumbnail")]
-            public string Thumbnail { get; set; } = "";
+            public string Thumbnail { get; init; } = "";
 
             [XmlElement("stats")]
-            public StatsElement Stats { get; set; } = new();
+            public StatsElement Stats { get; init; } = new();
 
             [XmlElement("status")]
-            public StatusElement Status { get; set; } = new();
+            public StatusElement Status { get; init; } = new();
 
             [XmlElement("numplays")]
-            public int NumPlays { get; set; }
+            public int NumPlays { get; init; }
 
             public class StatsElement
             {
                 [XmlAttribute("minplayers")]
-                public int MinPlayers { get; set; }
+                public int MinPlayers { get; init; }
 
                 [XmlAttribute("maxplayers")]
-                public int MaxPlayers { get; set; }
+                public int MaxPlayers { get; init; }
 
                 [XmlAttribute("minplaytime")]
-                public int MinPlaytime { get; set; }
+                public int MinPlaytime { get; init; }
 
                 [XmlAttribute("maxplaytime")]
-                public int MaxPlaytime { get; set; }
+                public int MaxPlaytime { get; init; }
 
                 [XmlAttribute("playingtime")]
-                public int Playtime { get; set; }
+                public int Playtime { get; init; }
 
                 [XmlAttribute("numowned")]
-                public int NumberOwned { get; set; }
+                public int NumberOwned { get; init; }
             }
 
             public class StatusElement
             {
                 [XmlAttribute("own")]
-                public bool Own { get; set; }
+                public bool Own { get; init; }
 
                 [XmlAttribute("prevowned")]
-                public bool PreviouslyOwned { get; set; }
+                public bool PreviouslyOwned { get; init; }
 
                 [XmlAttribute("fortrade")]
-                public bool ForTrade { get; set; }
+                public bool ForTrade { get; init; }
 
                 [XmlAttribute("want")]
-                public bool Want { get; set; }
+                public bool Want { get; init; }
 
                 [XmlAttribute("wanttoplay")]
-                public bool WantToPlay { get; set; }
+                public bool WantToPlay { get; init; }
 
                 [XmlAttribute("wanttobuy")]
-                public bool WantToBuy { get; set; }
+                public bool WantToBuy { get; init; }
 
                 [XmlAttribute("wishlist")]
-                public bool Wishlist { get; set; }
+                public bool Wishlist { get; init; }
 
                 [XmlAttribute("wishlistpriority")]
-                public int? WishlistPriority { get; set; }
+                public int WishlistPriority { get; init; }
 
                 [XmlAttribute("preordered")]
-                public bool Preordered { get; set; }
+                public bool Preordered { get; init; }
 
                 [XmlAttribute("lastmodified")]
-                public string LastModifiedString { get; set; } = "";
-
-                //[XmlIgnore]
-                //public DateTime? LastModified => DateTime.TryParse(LastModifiedString, out var date) ? date : null;
+                public string LastModifiedString { get; init; } = "";
             }
         }
     }

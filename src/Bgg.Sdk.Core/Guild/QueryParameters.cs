@@ -22,7 +22,7 @@ namespace Bgg.Sdk.Core.Guild
         [AliasAs("sort")]
         public SortType? SortType { get; set; }
         [AliasAs("page")]
-        public int Page { get; set; }
+        public int Page { get; set; } = 1;
 
     }
 

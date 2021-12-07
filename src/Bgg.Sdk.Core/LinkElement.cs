@@ -4,8 +4,8 @@ namespace Bgg.Sdk.Core
 {
     public class LinkElement
     {
-        [XmlAttribute("type")]
-        public LinkType LinkType { get; set; } = 0;
+        //[XmlAttribute("type")]
+        //public LinkType LinkType { get; set; } = 0;
         [XmlAttribute("id")]
         public int Id { get; set; }
         [XmlAttribute("value")]

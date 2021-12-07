@@ -5,7 +5,7 @@ namespace Bgg.Sdk.Core
     public class NameElement
     {
         [XmlAttribute("type")]
-        public NameType Type { get; set; } = NameType.Unknown;
+        public NameType NameType { get; set; } = NameType.Unknown;
         [XmlAttribute("sortindex")]
         public int SortIndex { get; set; }
         [XmlAttribute("value")]

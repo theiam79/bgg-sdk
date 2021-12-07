@@ -11,25 +11,25 @@ namespace Bgg.Sdk.Core.Family
     public class FamilyResult
     {
         [XmlAttribute("termsofuse")]
-        public string TermsOfUse { get; set; } = "";
+        public string TermsOfUse { get; init; } = "";
         [XmlElement("item")]
-        public FamilyElement Family { get; set; } = new();
+        public FamilyElement Family { get; init; } = new();
         public class FamilyElement
         {
             [XmlAttribute("type")]
-            public FamilyType FamilyType { get; set; } = FamilyType.Unknown;
+            public FamilyType FamilyType { get; init; } = FamilyType.Unknown;
             [XmlAttribute("id")]
-            public int Id { get; set; }
+            public int Id { get; init; }
             [XmlElement("thumbnail")]
-            public string ThumbnailUrl { get; set; } = "";
+            public string ThumbnailUrl { get; init; } = "";
             [XmlElement("image")]
-            public string ImageUrl { get; set; } = "";
+            public string ImageUrl { get; init; } = "";
             [XmlElement("name")]
-            public List<NameElement> Names { get; set; } = new();
+            public List<NameElement> Names { get; init; } = new();
             [XmlElement("description")]
-            public string Description { get; set; } = "";
+            public string Description { get; init; } = "";
             [XmlElement("link")]
-            public List<LinkElement> Links { get; set; } = new();
+            public List<LinkElement> Links { get; init; } = new();
         }
     }
 }

@@ -17,6 +17,6 @@ namespace Bgg.Sdk.Core.ForumList
         [AliasAs("id")]
         public int Id { get; set; }
         [AliasAs("type")]
-        public ForumListType ForumListType { get; set; } = ForumListType.Thing;
+        public ListType ForumListType { get; set; } = ListType.Thing;
     }
 }

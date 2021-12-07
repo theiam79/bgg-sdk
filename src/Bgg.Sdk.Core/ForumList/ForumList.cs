@@ -11,33 +11,31 @@ namespace Bgg.Sdk.Core.ForumList
     public class ForumList
     {
         [XmlAttribute("type")]
-        public ForumListType ForumListType { get; set; } = ForumListType.Unknown;
+        public ListType ForumListType { get; init; } = ListType.Unknown;
         [XmlAttribute("id")]
-        public int Id { get; set; }
+        public int Id { get; init; }
         [XmlAttribute("termsofuse")]
-        public string TermsOfUse { get; set; } = "";
+        public string TermsOfUse { get; init; } = "";
         [XmlElement("forum")]
-        public List<ForumElement> Forums { get; set; } = new();
+        public List<ForumElement> Forums { get; init; } = new();
         public class ForumElement
         {
             [XmlAttribute("id")]
-            public int Id { get; set; }
+            public int Id { get; init; }
             [XmlAttribute("groupid")]
-            public int GroupId { get; set; }
+            public int GroupId { get; init; }
             [XmlAttribute("title")]
-            public string Title { get; set; } = "";
+            public string Title { get; init; } = "";
             [XmlAttribute("noposting")]
-            public bool NoPosting { get; set; }
+            public bool NoPosting { get; init; }
             [XmlAttribute("description")]
-            public string Description { get; set; } = "";
+            public string Description { get; init; } = "";
             [XmlAttribute("numthreads")]
-            public int NumberOfThreads { get; set; }
+            public int NumberOfThreads { get; init; }
             [XmlAttribute("numposts")]
-            public int NumberOfPosts { get; set; }
+            public int NumberOfPosts { get; init; }
             [XmlAttribute("lastpostdate")]
-            public string LastPostDateString { get; set; } = "";
-            //[XmlIgnore]
-            //public DateTime LastPostDate => DateTime.TryParse(LastPostDateString, out var date) ? date : default;
+            public string LastPostDateString { get; init; } = "";
         }
     }
 

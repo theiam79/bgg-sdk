@@ -12,56 +12,101 @@ namespace Bgg.Sdk.UI.Terminal
     public class Application
     {
         private readonly IBggApi _bggApi;
+        private readonly BggClient _bggClient;
 
-        public Application(IBggApi bggApi)
+        public Application(IBggApi bggApi, BggClient bggClient)
         {
             _bggApi = bggApi;
+            _bggClient = bggClient;
         }
 
         public async Task Run()
         {
-            //var parameters = new Collection.QueryParameters("")
-            //{
-            //    ExcludedType = ItemType.BoardgameExpansion,
-            //    Stats = true,
-            //};
-
-            //var collection = await _bggApi.GetCollection(parameters);
-            //var collection = await _bggApi.GetCollection("");
-
-            //var search = new Search.QueryParameters("7 wonders");
-            //var search1 = await _bggApi.Search(search);
-            //search.Types.Add(ItemType.BoardgameExpansion);
-            //search.Types.Add(ItemType.BoardgameAccessory);
-            //var search2 = await _bggApi.Search(search);
-            //search.Types.Add(ItemType.Boardgame);
-            //var search3 = await _bggApi.Search(search);
-
-            //var user = await _bggApi.User("theiam79");
-            //var family = await _bggApi.Family(22783);
-            //var forum = await _bggApi.Forum(3665735);
-            //var forumList = await _bggApi.ForumList(192135);
-            //var guild = await _bggApi.Guild(3022);
-            //var hotgames = await _bggApi.HotItems(Core.HotItems.HotListType.Boardgame);
-            //var plays = await _bggApi.Plays("theiam79", 36218);
-            var things = await _bggApi.Things(173346);
-
-            var linkTypes = things.Items.SelectMany(i => i.Links).Select(l => l.LinkType).Distinct().ToList();
-            //var polls = things.Items.First().Polls;
-            //foreach (var poller in polls)
-            //{
-            //    var casted = poller as Core.Thing.NumberOfPlayersPoll;
-
-            //}
-
-            var queryParams = new Core.Thread.QueryParameters
+            var collectionParameters = new Collection.QueryParameters("theiam79")
             {
-                Id = 2767067,
-                DateFilter = DateTime.Today.AddYears(-10),
-                FilterType = Core.Thread.FilterType.DateTime
+                ExcludedType = ThingType.BoardgameExpansion,
+                Stats = true,
+                Own = true
             };
 
-            var thread = await _bggApi.Thread(queryParams);
+            var collection = await _bggClient.CollectionAsync(collectionParameters);
+
+            var familyParameters = new Core.Family.QueryParameters(22783)
+            {
+                FamilyType = FamilyType.BoardGameFamily
+            };
+
+            var family = await _bggClient.FamilyAsync(familyParameters);
+
+            var forumParameters = new Core.Forum.QueryParameters(3665735)
+            {
+
+            };
+            
+            var forum = await _bggClient.ForumAsync(forumParameters);
+
+            var forumListParameters = new Core.ForumList.QueryParameters(192135)
+            {
+
+            };
+            
+            var forumList = await _bggClient.ForumListAsync(forumListParameters);
+
+            var guildParameters = new Core.Guild.QueryParameters(3022)
+            {
+
+            };
+
+            var guild = await _bggClient.GuildAsync(guildParameters);
+
+            var hotlistParameters = new Core.HotItems.QueryParameters(Core.HotItems.HotListType.Boardgame)
+            {
+
+            };
+
+            var hotlist = await _bggClient.HotListAsync(hotlistParameters);
+
+            var playParameters = new Core.Plays.QueryParameters("theiam79", 36218)
+            {
+
+            };
+
+            var plays = await _bggClient.PlayInfoAsync(playParameters);
+
+            var searchParameters = new Core.Search.QueryParameters("7 wonders")
+            {
+
+            };
+
+            var searchResults = await _bggClient.SearchAsync(searchParameters);
+
+            var thingParameters = new Core.Thing.QueryParameters(173346)
+            {
+                Versions = true,
+                Videos = true,
+                Stats = true,
+                Marketplace = true,
+                Comments = true,
+            };
+
+            var thing = await _bggClient.ThingAsync(thingParameters);
+
+            var threadParameters = new Core.Thread.QueryParameters(2767067)
+            {
+
+            };
+
+            var thread = await _bggClient.ThreadAsync(threadParameters);
+
+            var userParameters = new Core.User.QueryParameters("theiam79")
+            {
+                Buddies = true,
+                Guilds = true,
+                Top = true,
+                Hot = true
+            };
+
+            var user = await _bggClient.UserAsync(userParameters);
         }
     }
 }
