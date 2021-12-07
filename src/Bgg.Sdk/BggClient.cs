@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bgg.Sdk
 {
-    public class BggClient
+    public class BggClient : IBggClient
     {
         private readonly IBggApi _bggApi;
         private readonly IMapper _mapper;

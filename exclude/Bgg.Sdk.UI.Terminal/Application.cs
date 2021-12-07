@@ -12,9 +12,9 @@ namespace Bgg.Sdk.UI.Terminal
     public class Application
     {
         private readonly IBggApi _bggApi;
-        private readonly BggClient _bggClient;
+        private readonly IBggClient _bggClient;
 
-        public Application(IBggApi bggApi, BggClient bggClient)
+        public Application(IBggApi bggApi, IBggClient bggClient)
         {
             _bggApi = bggApi;
             _bggClient = bggClient;
