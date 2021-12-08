@@ -15,6 +15,9 @@ namespace Bgg.Sdk.Core.HotItems
             HotListType = hotListType;
         }
 
+        /// <summary>
+        /// The hotlist type to retrieve
+        /// </summary>
         [AliasAs("type")]
         public HotListType HotListType { get; set; }
     }

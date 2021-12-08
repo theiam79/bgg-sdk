@@ -13,7 +13,7 @@ namespace Bgg.Sdk.Core.Family
         [XmlAttribute("termsofuse")]
         public string TermsOfUse { get; init; } = "";
         [XmlElement("item")]
-        public FamilyElement Family { get; init; } = new();
+        public List<FamilyElement> Families { get; init; } = new();
         public class FamilyElement
         {
             [XmlAttribute("type")]

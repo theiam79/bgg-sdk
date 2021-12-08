@@ -14,13 +14,22 @@ namespace Bgg.Sdk.Core.Search
             SearchTerm = searchTerm;
         }
 
+        /// <summary>
+        /// The search string
+        /// </summary>
         [AliasAs("query")]
         public string SearchTerm { get; }
 
+        /// <summary>
+        /// Filter results to only those matching given type(s)
+        /// </summary>
         [AliasAs("type")]
         [Query(CollectionFormat.Csv)]
         public List<ThingType>? Types { get; init; }
 
+        /// <summary>
+        /// Limit results to those that match the query exactly
+        /// </summary>
         [AliasAs("exact")]
         public bool? Exact { get; set; }
 

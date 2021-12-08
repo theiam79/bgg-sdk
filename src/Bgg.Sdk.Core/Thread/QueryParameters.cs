@@ -14,15 +14,32 @@ namespace Bgg.Sdk.Core.Thread
             Id = id;
         }
 
+        /// <summary>
+        /// Specifies the id of the thread to retrieve.
+        /// </summary>
         [AliasAs("id")]
         public int Id { get; init; }
+
+        /// <summary>
+        /// Filters the results so that only articles with an equal or higher id than NNN will be returned.
+        /// </summary>
         [AliasAs("minarticleid")]
         public int? MinimumArticleId { get; init; }
-        
+
+        /// <summary>
+        /// Limits the number of articles returned
+        /// </summary>
         [AliasAs("count")]
         public int? Count { get; init; }
 
+        /// <summary>
+        /// Which style of date filter should be used
+        /// </summary>
         public DateFilterType DateFilterType { private get; set; } = DateFilterType.DateOnly;
+
+        /// <summary>
+        /// The date to use for date filtering
+        /// </summary>
         public DateTime? DateFilter { private get; set; }
         
         [AliasAs("minarticledate")]
@@ -36,9 +53,5 @@ namespace Bgg.Sdk.Core.Thread
         
     }
 
-    public enum DateFilterType
-    {
-        DateOnly = 1,
-        DateTime = 2
-    }
+
 }

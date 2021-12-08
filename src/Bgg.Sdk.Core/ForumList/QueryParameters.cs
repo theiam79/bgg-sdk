@@ -14,8 +14,16 @@ namespace Bgg.Sdk.Core.ForumList
             Id = id;
         }
 
+        /// <summary>
+        /// Specifies the id of the type of database entry you want the forum list for. 
+        /// This is the id that appears in the address of the page when visiting a particular game in the database.
+        /// </summary>
         [AliasAs("id")]
         public int Id { get; set; }
+
+        /// <summary>
+        /// The type of entry in the database.
+        /// </summary>
         [AliasAs("type")]
         public ListType ForumListType { get; set; } = ListType.Thing;
     }

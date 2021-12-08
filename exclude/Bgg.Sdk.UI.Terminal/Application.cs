@@ -26,14 +26,15 @@ namespace Bgg.Sdk.UI.Terminal
             {
                 ExcludedType = ThingType.BoardgameExpansion,
                 Stats = true,
-                Own = true
+                //Own = true
+                Wishlist = true,
             };
 
             var collection = await _bggClient.CollectionAsync(collectionParameters);
 
             var familyParameters = new Core.Family.QueryParameters(22783)
             {
-                FamilyType = FamilyType.BoardGameFamily
+                FamilyTypes = new List<FamilyType> { FamilyType.BoardGameFamily }
             };
 
             var family = await _bggClient.FamilyAsync(familyParameters);

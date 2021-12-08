@@ -26,11 +26,11 @@ namespace Bgg.Sdk
             return _mapper.Map<Models.Collection>(response);
         }
 
-        public Task<Models.Family> FamilyAsync(int id) => FamilyAsync(new Core.Family.QueryParameters(id));
-        public async Task<Models.Family> FamilyAsync(Core.Family.QueryParameters queryParameters)
+        public Task<Models.FamilyCollection> FamilyAsync(int id) => FamilyAsync(new Core.Family.QueryParameters(id));
+        public async Task<Models.FamilyCollection> FamilyAsync(Core.Family.QueryParameters queryParameters)
         {
             var response = await _bggApi.Family(queryParameters);
-            return _mapper.Map<Models.Family>(response);
+            return _mapper.Map<Models.FamilyCollection>(response);
         }
 
         public Task<Models.Forum> ForumAsync(int id) => ForumAsync(new Core.Forum.QueryParameters(id));
@@ -78,11 +78,11 @@ namespace Bgg.Sdk
             return _mapper.Map<Models.SearchResult>(response);
         }
 
-        public Task<Models.Thing> ThingAsync(int id) => ThingAsync(new Core.Thing.QueryParameters(id));
-        public async Task<Models.Thing> ThingAsync(Core.Thing.QueryParameters queryParameters)
+        public Task<Models.ThingCollection> ThingAsync(int id) => ThingAsync(new Core.Thing.QueryParameters(id));
+        public async Task<Models.ThingCollection> ThingAsync(Core.Thing.QueryParameters queryParameters)
         {
             var response = await _bggApi.Things(queryParameters);
-            return _mapper.Map<Models.Thing>(response);
+            return _mapper.Map<Models.ThingCollection>(response);
         }
 
         public Task<Models.Thread> ThreadAsync(int id) => ThreadAsync(new Core.Thread.QueryParameters(id));

@@ -8,6 +8,71 @@ using System.Xml.Serialization;
 
 namespace Bgg.Sdk.Core
 {
+    public enum WishlistPriority
+    {
+        NotSet = 0,
+        [XmlEnum("1")]
+        MustHave = 1,
+        [XmlEnum("2")]
+        LoveToHave = 2,
+        [XmlEnum("3")]
+        LikeToHave = 3,
+        [XmlEnum("4")]
+        ThinkingAboutIt = 4,
+        [XmlEnum("5")]
+        DontBuyThis = 5
+    }
+
+    public enum Rating
+    {
+        /// <summary>
+        /// Defies description of a game. You won't catch me dead playing this. Clearly broken.
+        /// </summary>
+        DefiesDescriptionOfGame = 1,
+        /// <summary>
+        /// Extremely annoying game, won't ever play this again.
+        /// </summary>
+        ExtremelyAnnoying = 2,
+        /// <summary>
+        /// Likely won't play this again though could be convinced. Bad.
+        /// </summary>
+        LikelyWontPlay = 3,
+        /// <summary>
+        /// Not so good, it doesn;t get me but could be talked into it on occasion.
+        /// </summary>
+        NotSoGood =  4,
+        /// <summary>
+        /// Average game, slightly boring, take it or leave it.
+        /// </summary>
+        Average,
+        /// <summary>
+        /// Ok game, some fun or challenge at least, will play sporadically if in the right mood.
+        /// </summary>
+        Ok = 6,
+        /// <summary>
+        /// Good game, usually willing to play.
+        /// </summary>
+        Good = 7,
+        /// <summary>
+        /// Very good game. I like to play. Probably I'll suggest it and will never turn down a game.
+        /// </summary>
+        VeryGood = 8,
+        /// <summary>
+        /// Excellent game. Always want to play it.
+        /// </summary>
+        Excellent = 9,
+        /// <summary>
+        /// Outstanding. Always want to play and expect this will never change.
+        /// </summary>
+        Outstanding = 10
+    }
+
+    public enum DateFilterType
+    {
+        DateOnly = 1,
+        DateTime = 2
+    }
+
     public enum NameType
     {
         Unknown = 0,
@@ -50,8 +115,15 @@ namespace Bgg.Sdk.Core
     public enum RankingDomain
     {
         Unknown = 0,
+        [EnumMember(Value ="boardgame")]
         [XmlEnum("boardgame")]
-        BoardGame = 1
+        BoardGame = 1,
+        [EnumMember(Value = "rpg")]
+        [XmlEnum("rpg")]
+        Rpg = 2,
+        [EnumMember(Value = "videogame")]
+        [XmlEnum("videogame")]
+        VideoGame = 3
     }
 
     public enum ThingType

@@ -7,8 +7,8 @@ namespace Bgg.Sdk
     {
         Task<Collection> CollectionAsync(Core.Collection.QueryParameters queryParameters);
         Task<Collection> CollectionAsync(string username);
-        Task<Family> FamilyAsync(int id);
-        Task<Family> FamilyAsync(Core.Family.QueryParameters queryParameters);
+        Task<FamilyCollection> FamilyAsync(int id);
+        Task<FamilyCollection> FamilyAsync(Core.Family.QueryParameters queryParameters);
         Task<Forum> ForumAsync(int id);
         Task<Forum> ForumAsync(Core.Forum.QueryParameters queryParameters);
         Task<ForumList> ForumListAsync(int id);
@@ -23,8 +23,8 @@ namespace Bgg.Sdk
         Task<PlayInfo> PlayInfoAsync(string username, int id);
         Task<SearchResult> SearchAsync(Core.Search.QueryParameters queryParameters);
         Task<SearchResult> SearchAsync(string searchTerm);
-        Task<Thing> ThingAsync(int id);
-        Task<Thing> ThingAsync(Core.Thing.QueryParameters queryParameters);
+        Task<ThingCollection> ThingAsync(int id);
+        Task<ThingCollection> ThingAsync(Core.Thing.QueryParameters queryParameters);
         Task<Models.Thread> ThreadAsync(int id);
         Task<Models.Thread> ThreadAsync(Core.Thread.QueryParameters queryParameters);
         Task<User> UserAsync(Core.User.QueryParameters queryParameters);

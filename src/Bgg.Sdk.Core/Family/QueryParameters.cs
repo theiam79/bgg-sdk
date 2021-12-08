@@ -11,12 +11,23 @@ namespace Bgg.Sdk.Core.Family
     {
         public QueryParameters(int id)
         {
-            Id = id;
+            Ids.Add(id);
         }
 
+        /// <summary>
+        /// Specifies the id of the family to retrieve. 
+        /// To request multiple families with a single query, NNN can specify a comma-delimited list of ids.
+        /// </summary>
         [AliasAs("id")]
-        public int Id { get; set; }
+        [Query(CollectionFormat.Csv)]
+        public List<int> Ids { get; init; } = new();
+
+        /// <summary>
+        /// Specifies that, regardless of the type of family asked for by id, the results are filtered by the FAMILYTPE(s) specified. 
+        /// Multiple FAMILYTYPEs can be specified in a comma-delimited list.
+        /// </summary>
         [AliasAs("type")]
-        public FamilyType? FamilyType {get;set;}
+        [Query(CollectionFormat.Csv)]
+        public List<FamilyType>? FamilyTypes {get;set;}
     }
 }

@@ -13,7 +13,7 @@ namespace Bgg.Sdk.Core.Thing
         [XmlAttribute("termsofuse")]
         public string TermsOfUse { get; init; } = "";
         [XmlElement("item")]
-        public ItemElement Item { get; init; } = new();
+        public List<ItemElement> Items { get; init; } = new();
 
         public class ItemElement
         {

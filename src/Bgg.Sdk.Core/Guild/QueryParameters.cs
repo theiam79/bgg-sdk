@@ -15,12 +15,28 @@ namespace Bgg.Sdk.Core.Guild
             Id = id;
         }
 
+        /// <summary>
+        /// The Id of the guild
+        /// </summary>
         [AliasAs("id")]
         public int Id { get; set; }
+
+        /// <summary>
+        /// Include the member roster
+        /// </summary>
         [AliasAs("members")]
         public bool Members { get; set; } = true;
+
+        /// <summary>
+        /// Optionally sort the member list
+        /// </summary>
         [AliasAs("sort")]
         public SortType? SortType { get; set; }
+
+        /// <summary>
+        /// Controls the page of data for <see cref="Members"/>.
+        /// Page size is 25.
+        /// </summary>
         [AliasAs("page")]
         public int Page { get; set; } = 1;
 

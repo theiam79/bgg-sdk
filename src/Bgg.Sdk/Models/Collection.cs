@@ -8,26 +8,26 @@ namespace Bgg.Sdk.Models
 {
     public class Collection
     {
-        public int TotalItems { get; set; }
-        public string TermsOfUse { get; set; } = "";
-        public DateTime GeneratedDate { get; set; }
-        public List<CollectionItem> CollectionItems { get; set; } = new();
+        public int TotalItems { get; init; }
+        public string TermsOfUse { get; init; } = "";
+        public DateTime GeneratedDate { get; init; }
+        public List<CollectionItem> CollectionItems { get; init; } = new();
         public class CollectionItem
         {
-            public int ObjectId { get; set; }
-            public string Name { get; set; } = "";
-            public int YearPublished { get; set; }
-            public string ImageUrl { get; set; } = "";
-            public string ThumbnailUrl { get; set; } = "";
-            public int MinimumPlayerCount { get; set; }
-            public int MaxPlayerCount { get; set; }
-            public TimeSpan MinimumPlayTime { get; set; }
-            public TimeSpan MaximumPlayTime { get; set; }
-            public TimeSpan AveragePlayTime { get; set; }
-            public int TotalOwnedCopies { get; set; }
-            public CollectionItemStatus Status { get; set; }
-            public int WishlistPriority { get; set; }
-            public DateTime StatusLastModified { get; set; }
+            public int ObjectId { get; init; }
+            public string Name { get; init; } = "";
+            public int YearPublished { get; init; }
+            public string ImageUrl { get; init; } = "";
+            public string ThumbnailUrl { get; init; } = "";
+            public int MinimumPlayerCount { get; init; }
+            public int MaxPlayerCount { get; init; }
+            public TimeSpan MinimumPlayTime { get; init; }
+            public TimeSpan MaximumPlayTime { get; init; }
+            public TimeSpan AveragePlayTime { get; init; }
+            public int TotalOwnedCopies { get; init; }
+            public CollectionItemStatus Status { get; init; }
+            public Core.WishlistPriority WishlistPriority { get; init; }
+            public DateTime StatusLastModified { get; init; }
 
             [Flags]
             public enum CollectionItemStatus

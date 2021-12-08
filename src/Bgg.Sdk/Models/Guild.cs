@@ -21,12 +21,12 @@
 
         public class LocationInfo
         {
-            public string Address1 { get; set; } = "";
-            public string Address2 { get; set; } = "";
-            public string City { get; set; } = "";
-            public string StateOrProvince { get; set; } = "";
-            public string PostalCode { get; set; } = "";
-            public string Country { get; set; } = "";
+            public string Address1 { get; init; } = "";
+            public string Address2 { get; init; } = "";
+            public string City { get; init; } = "";
+            public string StateOrProvince { get; init; } = "";
+            public string PostalCode { get; init; } = "";
+            public string Country { get; init; } = "";
         }
     }
 }
