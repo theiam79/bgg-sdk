@@ -1,4 +1,4 @@
-# This is a basic workflow to help you get started with Actions
+c# This is a basic workflow to help you get started with Actions
 
 name: CI
 
@@ -43,7 +43,7 @@ jobs:
       
       - name: Run gitversion
         id: gitversion
-        uses: gittools/actions/gitversion/setup@v0.9.7
+        uses: gittools/actions/gitversion/execute@v0.9.7
         with:
           useConfigFile: true
       
