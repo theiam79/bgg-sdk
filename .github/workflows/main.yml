@@ -58,3 +58,23 @@ jobs:
         
       - name: Push
         run: dotnet nuget push src/**/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/${{ github.repository_owner }}
+
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remove old prerelease versions of Bgg.Sdk
+        uses: actions/delete-package-versions@v2
+        with: 
+          package-name: 'Bgg.Sdk'
+          delete-only-pre-release-versions: true
+          min-versions-to-keep: 5
+    
+      - name: Remove old prerelease versions of Bgg.Sdk.Core
+        uses: actions/delete-package-versions@v2
+        with: 
+          package-name: 'Bgg.Sdk.Core'
+          delete-only-pre-release-versions: true
+          min-versions-to-keep: 5
+          
+          
+          
