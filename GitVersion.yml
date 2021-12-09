@@ -1,0 +1,11 @@
+mode: Mainline
+branches:
+  main:
+    tag: ''
+  feature:
+    tag: useBranchName
+  hotfix:
+    tag: useBranchName
+ignore:
+  sha: []
+merge-message-formats: {}
