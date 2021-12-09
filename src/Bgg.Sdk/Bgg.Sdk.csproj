@@ -4,6 +4,12 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Authors>Tyler Hundley</Authors>
+    <Description>Wrapper for Bgg.SDK.Core that provides better mapped objects and various shortcut methods</Description>
+    <RepositoryUrl>https://github.com/theiam79/bgg-sdk</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>bgg, boardgamegeek</PackageTags>
+    <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
