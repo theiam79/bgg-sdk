@@ -54,7 +54,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore -p:Version=${{ steps.gitversion.outputs.nuGetVersionV2 }}
         
       - name: Pack
-        run: dotnet pack --no-build -p:Version=${{ steps.gitversion.outputs.nuGetVersionV2 }}
+        run: dotnet pack --no-build --configuration Release -p:Version=${{ steps.gitversion.outputs.nuGetVersionV2 }}
         
       - name: Add Github packages
         run: dotnet nuget add source --username USERNAME --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/theiam79/index.json"
