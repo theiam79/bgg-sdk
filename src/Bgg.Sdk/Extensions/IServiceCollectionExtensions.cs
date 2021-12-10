@@ -1,5 +1,6 @@
 ﻿using Bgg.Sdk.Core;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Polly;
 using Refit;
 using System;
@@ -10,8 +11,16 @@ using System.Threading.Tasks;
 
 namespace Bgg.Sdk.Extensions
 {
+    /// <summary>
+    /// Extension methods for <see cref="IServiceCollection"/>
+    /// </summary>
     public static class IServiceCollectionExtensions
     {
+        /// <summary>
+        /// Registers the default implementation of <see cref="IBggApi"/> and <see cref="IBggClient"/>, as well as all maps used by the library
+        /// </summary>
+        /// <param name="services">The <see cref="IServiceCollection"/> to register services with</param>
+        /// <returns>The <see cref="IServiceCollection"/> with the services registered</returns>
         public static IServiceCollection AddBgg(this IServiceCollection services)
         {
             services
@@ -29,7 +38,7 @@ namespace Bgg.Sdk.Extensions
                 ;
 
             services.AddAutoMapper(typeof(BggClient));
-            services.AddTransient<IBggClient, BggClient>();
+            services.TryAddTransient<IBggClient, BggClient>();
             return services;
         } 
     }
