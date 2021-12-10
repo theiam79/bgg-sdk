@@ -2,7 +2,7 @@
 A dotnet client for the BoardGameGeek XMLAPI2. The core library is a simple wrapper for the API using [refit](https://github.com/reactiveui/refit), while the main library provides a useful client that interacts with the api and then maps the results into more consistent objects before returning them.
 
 [![Release](https://github.com/theiam79/bgg-sdk/actions/workflows/publish-release.yml/badge.svg)](https://github.com/theiam79/bgg-sdk/actions/workflows/publish-release.yml)
-[![Prerelease](https://github.com/theiam79/bgg-sdk/actions/workflows/publish-test.yml/badge.svg)](https://github.com/theiam79/bgg-sdk/actions/workflows/publish-test.yml)
+[![Prerelease](https://github.com/theiam79/bgg-sdk/actions/workflows/publish-test.yml/badge.svg?branch=dev)](https://github.com/theiam79/bgg-sdk/actions/workflows/publish-test.yml)
 ## install
 You can install via the dotnet cli
 ```
