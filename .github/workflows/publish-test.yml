@@ -75,6 +75,3 @@ jobs:
           package-name: 'Bgg.Sdk.Core'
           delete-only-pre-release-versions: true
           min-versions-to-keep: 5
-          
-          
-          
