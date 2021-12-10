@@ -93,7 +93,7 @@ namespace Bgg.Sdk.Core.Collection
                 public bool Wishlist { get; init; }
 
                 [XmlAttribute("wishlistpriority")]
-                public int WishlistPriority { get; init; }
+                public WishlistPriority WishlistPriority { get; init; }
 
                 [XmlAttribute("preordered")]
                 public bool Preordered { get; init; }

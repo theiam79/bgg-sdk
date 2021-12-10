@@ -14,8 +14,15 @@ namespace Bgg.Sdk.Core.Forum
             Id = id;
         }
 
+        /// <summary>
+        /// Specifies the id of the forum. This is the id that appears in the address of the page when visiting a forum in the browser.
+        /// </summary>
         [AliasAs("id")]
         public int Id { get; set; }
+
+        /// <summary>
+        /// The page of the thread list to return; page size is 50. Threads in the thread list are sorted in order of most recent post.
+        /// </summary>
         [AliasAs("page")]
         public int Page { get; set; } = 1;
     }
