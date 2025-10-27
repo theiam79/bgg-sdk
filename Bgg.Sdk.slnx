@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="exclude/Bgg.Sdk.UI.Terminal/Bgg.Sdk.UI.Terminal.csproj">
+    <Build Solution="Release|*" Project="false" />
+  </Project>
+  <Project Path="src/Bgg.Sdk.Core/Bgg.Sdk.Core.csproj" />
+  <Project Path="src/Bgg.Sdk/Bgg.Sdk.csproj" />
+</Solution>

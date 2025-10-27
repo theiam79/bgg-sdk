@@ -37,7 +37,10 @@ namespace Bgg.Sdk.Extensions
                     .WaitAndRetryAsync(5, attempt => TimeSpan.FromSeconds(Math.Pow(2, attempt))))
                 ;
 
-            services.AddAutoMapper(typeof(BggClient));
+            services.AddAutoMapper(config =>
+            {
+                config.AddMaps(typeof(IBggClient));
+            });
             services.TryAddTransient<IBggClient, BggClient>();
             return services;
         } 
