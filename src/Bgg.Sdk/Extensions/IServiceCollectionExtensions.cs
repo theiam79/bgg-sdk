@@ -1,4 +1,5 @@
-﻿using Bgg.Sdk.Core;
+﻿using Bgg.Sdk.Core; 
+using Bgg.Sdk.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Polly;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Bgg.Sdk.Extensions
 {
@@ -26,7 +28,22 @@ namespace Bgg.Sdk.Extensions
             services
                 .AddRefitClient<IBggApi>(new RefitSettings
                 {
-                    ContentSerializer = new XmlContentSerializer()
+                    ContentSerializer = new XmlContentSerializer(),
+                    DeserializationExceptionFactory = async (response, exception) =>
+                    {
+                        try
+                        {
+                            XmlSerializer serializer = new(typeof(ErrorResponse));
+                            if (serializer.Deserialize(await response.Content.ReadAsStreamAsync()) is ErrorResponse errorResponse)
+                            {
+                                string[] bggErrors = [.. errorResponse.Errors.Select(e => e.Message)];
+                                return new BggApiException($"Something went wrong reading the response from the Board Game Geek API", bggErrors);
+                            }
+                        }
+                        catch (Exception) { }
+
+                        return exception;
+                    }
                 })
                 .ConfigureHttpClient(client =>
                 {
