@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Bgg.Sdk.Core;
+﻿using Bgg.Sdk.Core;
 using Bgg.Sdk.Mapping.Mappers;
 using System;
 using System.Collections.Generic;
