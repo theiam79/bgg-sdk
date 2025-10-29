@@ -15,7 +15,7 @@ public static class Program
             .ConfigureServices((context, services) =>
             {
                 services.AddTransient<Application>();
-                services.AddBgg();
+                services.AddBggClient("YOUR_API_TOKEN");
             })
             .Build();
 

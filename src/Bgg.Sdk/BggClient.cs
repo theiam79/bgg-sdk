@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Bgg.Sdk.Core;
+using Bgg.Sdk.Mapping.Mappers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,21 +12,12 @@ namespace Bgg.Sdk
     /// <summary>
     /// The default implementation of <see cref="IBggClient"/>
     /// </summary>
-    public class BggClient : IBggClient
+    /// <remarks>
+    /// The default constructor
+    /// </remarks>
+    /// <param name="bggApi">The <see cref="IBggApi"/> used to make requests</param>
+    public class BggClient(IBggApi bggApi) : IBggClient
     {
-        private readonly IBggApi _bggApi;
-        private readonly IMapper _mapper;
-
-        /// <summary>
-        /// The default constructor
-        /// </summary>
-        /// <param name="bggApi">The <see cref="IBggApi"/> used to make requests</param>
-        /// <param name="mapper">The <see cref="IMapper"/> used to map responses</param>
-        public BggClient(IBggApi bggApi, IMapper mapper)
-        {
-            _bggApi = bggApi;
-            _mapper = mapper;
-        }
 
         /// <summary>
         /// <inheritdoc/>
@@ -37,8 +29,8 @@ namespace Bgg.Sdk
         /// </summary>
         public async Task<Models.Collection> CollectionAsync(Core.Collection.QueryParameters queryParameters)
         {
-            var response = await _bggApi.GetCollection(queryParameters);
-            return _mapper.Map<Models.Collection>(response);
+            var response = await bggApi.GetCollection(queryParameters);
+            return CollectionMapper.ToCollection(response);
         }
 
         /// <summary>
@@ -51,8 +43,8 @@ namespace Bgg.Sdk
         /// </summary>
         public async Task<Models.FamilyCollection> FamilyAsync(Core.Family.QueryParameters queryParameters)
         {
-            var response = await _bggApi.Family(queryParameters);
-            return _mapper.Map<Models.FamilyCollection>(response);
+            var response = await bggApi.Family(queryParameters);
+            return FamilyMapper.ToFamilyCollection(response);
         }
 
         /// <summary>
@@ -65,9 +57,9 @@ namespace Bgg.Sdk
         /// </summary>
         public async Task<Models.Forum> ForumAsync(Core.Forum.QueryParameters queryParameters)
         {
-            var response = await _bggApi.Forum(queryParameters);
+            var response = await bggApi.Forum(queryParameters);
             response.Page = queryParameters.Page;
-            return _mapper.Map<Models.Forum>(response);
+            return ForumMapper.ToForum(response);
         }
 
         /// <summary>
@@ -80,8 +72,8 @@ namespace Bgg.Sdk
         /// </summary>
         public async Task<Models.ForumList> ForumListAsync(Core.ForumList.QueryParameters queryParameters)
         {
-            var response = await _bggApi.ForumList(queryParameters);
-            return _mapper.Map<Models.ForumList>(response);
+            var response = await bggApi.ForumList(queryParameters);
+            return ForumListMapper.ToForumList(response);
         }
 
         /// <summary>
@@ -94,8 +86,8 @@ namespace Bgg.Sdk
         /// </summary>
         public async Task<Models.Guild> GuildAsync(Core.Guild.QueryParameters queryParameters)
         {
-            var response = await _bggApi.Guild(queryParameters);
-            return _mapper.Map<Models.Guild>(response);
+            var response = await bggApi.Guild(queryParameters);
+            return GuildMapper.ToGuild(response);
         }
 
         /// <summary>
@@ -108,8 +100,8 @@ namespace Bgg.Sdk
         /// </summary>
         public async Task<Models.HotList> HotListAsync(Core.HotItems.QueryParameters queryParameters)
         {
-            var response = await _bggApi.HotItems(queryParameters);
-            return _mapper.Map<Models.HotList>(response);
+            var response = await bggApi.HotItems(queryParameters);
+            return HotListMapper.ToHotList(response);
         }
 
         /// <summary>
@@ -132,8 +124,8 @@ namespace Bgg.Sdk
         /// </summary>
         public async Task<Models.PlayInfo> PlayInfoAsync(Core.Plays.QueryParameters queryParameters)
         {
-            var response = await _bggApi.Plays(queryParameters);
-            return _mapper.Map<Models.PlayInfo>(response);
+            var response = await bggApi.Plays(queryParameters);
+            return PlayInfoMapper.ToPlayInfo(response);
         }
 
         /// <summary>
@@ -146,8 +138,8 @@ namespace Bgg.Sdk
         /// </summary>`
         public async Task<Models.SearchResult> SearchAsync(Core.Search.QueryParameters queryParameters)
         {
-            var response = await _bggApi.Search(queryParameters);
-            return _mapper.Map<Models.SearchResult>(response);
+            var response = await bggApi.Search(queryParameters);
+            return SearchMapper.ToSearchResult(response);
         }
 
         /// <summary>
@@ -160,8 +152,8 @@ namespace Bgg.Sdk
         /// </summary>
         public async Task<Models.ThingCollection> ThingAsync(Core.Thing.QueryParameters queryParameters)
         {
-            var response = await _bggApi.Things(queryParameters);
-            return _mapper.Map<Models.ThingCollection>(response);
+            var response = await bggApi.Things(queryParameters);
+            return ThingMapper.ToThingCollection(response);
         }
 
         /// <summary>
@@ -174,8 +166,8 @@ namespace Bgg.Sdk
         /// </summary>
         public async Task<Models.Thread> ThreadAsync(Core.Thread.QueryParameters queryParameters)
         {
-            var response = await _bggApi.Thread(queryParameters);
-            return _mapper.Map<Models.Thread>(response);
+            var response = await bggApi.Thread(queryParameters);
+            return ThreadMapper.ToThread(response);
         }
 
         /// <summary>
@@ -188,8 +180,8 @@ namespace Bgg.Sdk
         /// </summary>
         public async Task<Models.User> UserAsync(Core.User.QueryParameters queryParameters)
         {
-            var response = await _bggApi.User(queryParameters);
-            return _mapper.Map<Models.User>(response);
+            var response = await bggApi.User(queryParameters);
+            return UserMapper.ToUser(response);
         }
     }
 }
