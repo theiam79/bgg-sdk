@@ -48,7 +48,7 @@ namespace Bgg.Sdk.Extensions
                 })
                 .ConfigureHttpClient(client =>
                 {
-                    client.BaseAddress = new Uri("https://www.boardgamegeek.com/xmlapi2");
+                    client.BaseAddress = new Uri("https://boardgamegeek.com/xmlapi2");
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiToken);
                 })
                 .AddTransientHttpErrorPolicy(builder => builder
