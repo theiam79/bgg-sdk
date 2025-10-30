@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Authors>Tyler Hundley</Authors>
@@ -11,11 +10,10 @@
     <PackageTags>bgg, boardgamegeek</PackageTags>
     <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">True</GenerateDocumentationFile>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Polly" Version="7.2.3" />
-    <PackageReference Include="Refit" Version="6.1.15" />
-    <PackageReference Include="Refit.HttpClientFactory" Version="6.1.15" />
+    <PackageReference Include="Polly" Version="8.6.4" />
+    <PackageReference Include="Refit" Version="8.0.0" />
+    <PackageReference Include="Refit.HttpClientFactory" Version="8.0.0" />
+    <PackageReference Include="Refit.Xml" Version="8.0.0" />
   </ItemGroup>
-
 </Project>
